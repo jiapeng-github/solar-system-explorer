@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "apk": "builds/android/solar-system-explorer-v0.6.0-debug.apk",
+  "bytes": 44944065,
+  "sha256": "30401733e55b3c8bcd7424591e345472c9e176713cfdd25c11afdad40bef32b5",
+  "checks": [
+    "launcher",
+    "version",
+    "arm64",
+    "no permissions",
+    "offline catalog",
+    "10 surface maps and 8 thumbnails with compiled textures",
+    "excluded development files and concept art",
+    "ZIP integrity",
+    "signature"
+  ]
+}

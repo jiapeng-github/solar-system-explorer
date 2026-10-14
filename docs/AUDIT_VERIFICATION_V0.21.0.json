@@ -1,0 +1,131 @@
+{
+  "version": "0.21.0",
+  "status": "PASS",
+  "godot": "4.6.3 stable",
+  "test_count": 13,
+  "tests": [
+    {
+      "test": "activity_tests",
+      "status": "PASS",
+      "mode": "headless",
+      "log": "work/activity_tests-v021.stdout",
+      "summary": "PASS: independent pause/focus lifecycle, notification ordering and duplicate notifications"
+    },
+    {
+      "test": "storage_regression_tests",
+      "status": "PASS",
+      "mode": "headless",
+      "log": "work/storage_regression_tests-v021.stdout",
+      "summary": "PASS: idempotent completion, save failure recovery, corrupt reload and batched seasons persistence"
+    },
+    {
+      "test": "interaction_polish_tests",
+      "status": "PASS",
+      "mode": "desktop-rendered",
+      "log": "work/interaction_polish_tests-v021.stdout",
+      "summary": "PASS: actual thumbnail activation, default Earth visit, daylight keyboard pause, independent experiment scrolling and knowledge navigation"
+    },
+    {
+      "test": "run_tests",
+      "status": "PASS",
+      "mode": "headless",
+      "log": "work/run_tests-v021.stdout",
+      "summary": "PASS: 8 catalog entries, 24 orbit checks, storage recovery, navigation, camera gestures, transitions, zoom limits, restore view, pause, 60-fps lesson playback, background suspension, independent lesson state, completion summary, back navigation, comparison state, lessons, thumbnails, orbital spacing, overview framing, close-up isolation, 16:9 and portrait layout, eight knowledge cards, period units, retrograde duration, two task flows, legacy records, reset confirmation"
+    },
+    {
+      "test": "lab_audio_tests",
+      "status": "PASS",
+      "mode": "desktop-rendered",
+      "log": "work/lab_audio_tests-v021.stdout",
+      "summary": "PASS: lab audio user boundaries, silence, slider release, first completion and repeat guards"
+    },
+    {
+      "test": "audio_integration_tests",
+      "status": "PASS",
+      "mode": "headless",
+      "log": "work/audio_integration_tests-v021.stdout",
+      "summary": "PASS: all-page audio actions, no-op/restore silence, first completion, mute and responsive header"
+    },
+    {
+      "test": "background_music_tests",
+      "status": "PASS",
+      "mode": "headless",
+      "log": "work/background_music_tests-v021.stdout",
+      "summary": "PASS: music looping, fade, ducking, all-page continuity, mute persistence and Android lifecycle"
+    },
+    {
+      "test": "quiz_focus_tests",
+      "status": "PASS",
+      "mode": "desktop-rendered",
+      "log": "work/quiz_focus_tests-v021.stdout",
+      "summary": "PASS: quiz focus containment, keyboard dismissal, touch targets and safe page rebuild"
+    },
+    {
+      "test": "seasons_tests",
+      "status": "PASS",
+      "mode": "desktop-rendered",
+      "log": "work/seasons_tests-v021.stdout",
+      "summary": "PASS: seasons model, completion gates, state persistence, playback and layouts"
+    },
+    {
+      "test": "year_tests",
+      "status": "PASS",
+      "mode": "desktop-rendered",
+      "log": "work/year_tests-v021.stdout",
+      "summary": "PASS: year metrics, orbit position, completion, replay, pause, reset and responsive layouts"
+    },
+    {
+      "test": "progress_tests",
+      "status": "PASS",
+      "mode": "desktop-rendered",
+      "log": "work/progress_tests-v021.stdout",
+      "summary": "PASS: progress recommendations, planet status, experiments, quiz gates, review, reset and layouts"
+    },
+    {
+      "test": "home_tests",
+      "status": "PASS",
+      "mode": "desktop-rendered",
+      "log": "work/home_tests-v021.stdout",
+      "summary": "PASS: home navigation, real progress, static hero and responsive layouts"
+    },
+    {
+      "test": "interface_review",
+      "status": "PASS",
+      "mode": "desktop-rendered",
+      "log": "work/interface_review-v021.stdout",
+      "summary": "PASS: all pages fit reviewed layouts"
+    }
+  ],
+  "reviewed_window_sizes": [
+    [
+      1280,
+      800
+    ],
+    [
+      1280,
+      720
+    ],
+    [
+      800,
+      1100
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "page_states_per_size": 12,
+  "additional_checks": [
+    "phone scroll reachability",
+    "sources/reset overlays",
+    "answer-card focus containment",
+    "real keyboard toggle activation",
+    "Android back notification routing",
+    "interleaved pause/focus notifications",
+    "interrupted slider drag persistence",
+    "music sample loop boundary"
+  ],
+  "limits": [
+    "Desktop rendering and simulated lifecycle notifications only; Android tablet touch, GPU performance and audio latency need device acceptance."
+  ]
+}

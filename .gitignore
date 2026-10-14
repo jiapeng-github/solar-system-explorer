@@ -1,0 +1,15 @@
+.godot/
+__pycache__/
+*.py[cod]
+builds/
+.DS_Store
+.env
+.env.*
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+export_credentials.cfg
+
+
+work/

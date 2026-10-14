@@ -1,0 +1,28 @@
+{
+  "title": "星海慢航 / Starlight Voyage",
+  "status": "integrated in App v0.20.0; original design audition retained",
+  "original_procedural_synthesis": true,
+  "seconds": 60,
+  "sample_rate": 48000,
+  "channels": 2,
+  "format": "PCM16",
+  "tempo_reference_bpm": 64,
+  "peak_dbfs": -16.38,
+  "rms_dbfs": -30.0,
+  "clipped_samples": 0,
+  "loop_seam_step_pcm16": [
+    1,
+    1
+  ],
+  "max_adjacent_step_pcm16": [
+    154,
+    139
+  ],
+  "stereo_correlation": 0.473,
+  "mono_rms_change_db": -1.33,
+  "files": {
+    "loop": "starlight-voyage-loop.wav",
+    "audition": "starlight-voyage-preview.wav"
+  },
+  "device_audition": "pending; sample metrics do not measure perceived loudness or device output"
+}

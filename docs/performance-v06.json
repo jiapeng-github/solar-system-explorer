@@ -1,0 +1,11 @@
+{
+  "elapsed_ms": 1692,
+  "nodes_after": 93,
+  "nodes_before": 93,
+  "orphans_after": 35,
+  "orphans_before": 35,
+  "page_changes": 48,
+  "scope": "Desktop navigation resource stability, not Android FPS",
+  "static_bytes_after": 135099687,
+  "static_bytes_before": 135087767
+}

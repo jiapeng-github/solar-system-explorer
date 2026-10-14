@@ -1,0 +1,43 @@
+{
+  "platform": "macOS",
+  "renderer": "Apple M5",
+  "samples": [
+    {
+      "draw_calls": 583.0,
+      "frames": 120,
+      "median_frame_ms": 8.218,
+      "nodes": 178.0,
+      "p95_frame_ms": 13.897,
+      "scene": "overview_running_high",
+      "static_bytes": 131778103
+    },
+    {
+      "draw_calls": 543.0,
+      "frames": 120,
+      "median_frame_ms": 8.261,
+      "nodes": 178.0,
+      "p95_frame_ms": 13.638,
+      "scene": "earth_closeup_high",
+      "static_bytes": 131780351
+    },
+    {
+      "draw_calls": 516.0,
+      "frames": 120,
+      "median_frame_ms": 8.182,
+      "nodes": 82.0,
+      "p95_frame_ms": 13.963,
+      "scene": "year_playback",
+      "static_bytes": 132493429
+    },
+    {
+      "draw_calls": 499.0,
+      "frames": 120,
+      "median_frame_ms": 8.208,
+      "nodes": 93.0,
+      "p95_frame_ms": 13.589,
+      "scene": "static_home",
+      "static_bytes": 134471851
+    }
+  ],
+  "scope": "Desktop short samples including presentation scheduling; not Android performance or a before/after speedup claim"
+}

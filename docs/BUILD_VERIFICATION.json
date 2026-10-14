@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "apk": "builds/android/solar-system-explorer-v0.2.0-debug.apk",
+  "bytes": 27707176,
+  "sha256": "769dd30557c92e36de2f9b5cd57efb5f162038a9d0b18256eca3a3216ad05f3f",
+  "checks": [
+    "launcher",
+    "version",
+    "arm64",
+    "no permissions",
+    "offline catalog",
+    "excluded development files",
+    "ZIP integrity",
+    "signature"
+  ]
+}

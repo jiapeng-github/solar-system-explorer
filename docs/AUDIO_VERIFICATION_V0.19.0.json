@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "version": "0.19.0",
+  "versionCode": 26,
+  "checks": {
+    "v019-audio_service_tests.stdout": "PASS: audio priority, deduplication, preference, foreground, resources, slider and mute control",
+    "v019-lab_audio_tests.stdout": "PASS: lab audio user boundaries, silence, slider release, first completion and repeat guards",
+    "v019-run_tests.stdout": "PASS: 8 catalog entries, 24 orbit checks, storage recovery, navigation, camera gestures, transitions, zoom limits, restore view, pause, 60-fps lesson playback, background suspension, independent lesson state, completion summary, back navigation, comparison state, lessons, thumbnails, orbital spacing, overview framing, close-up isolation, 16:9 and portrait layout, eight knowledge cards, period units, retrograde duration, two task flows, legacy records, reset confirmation",
+    "v019-seasons_tests.stdout": "PASS: seasons model, completion gates, state persistence, playback and layouts",
+    "v019-quiz_focus_tests.stdout": "PASS: quiz focus containment, keyboard dismissal, touch targets and safe page rebuild",
+    "audio-visual.stdout": "PASS: all-page audio actions, no-op/restore silence, first completion, mute and responsive header"
+  }
+}

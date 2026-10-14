@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "version": "0.20.0",
+  "checks": {
+    "background_music_tests": "PASS: music looping, fade, ducking, all-page continuity, mute persistence and Android lifecycle",
+    "audio_service_tests": "PASS: audio priority, deduplication, preference, foreground, resources, slider and mute control",
+    "lab_audio_tests": "PASS: lab audio user boundaries, silence, slider release, first completion and repeat guards",
+    "audio_integration_tests": "PASS: all-page audio actions, no-op/restore silence, first completion, mute and responsive header"
+  },
+  "music_matches_approved_master": true,
+  "android_device_audition": "pending"
+}

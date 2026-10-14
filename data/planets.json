@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-07",
+  "sources": {
+    "physical": "https://ssd.jpl.nasa.gov/planets/phys_par.html",
+    "orbit": "https://ssd.jpl.nasa.gov/planets/approx_pos.html"
+  },
+  "definitions": {
+    "radius_km": {
+      "unit": "km",
+      "definition": "体积等效平均半径",
+      "source": "physical"
+    },
+    "period_years": {
+      "unit": "Julian year (365.25 d)",
+      "definition": "恒星公转周期",
+      "source": "physical"
+    },
+    "rotation_days": {
+      "unit": "day",
+      "definition": "恒星自转周期；负号表示逆行",
+      "source": "physical"
+    },
+    "a_au": {
+      "unit": "au",
+      "definition": "J2000 拟合轨道半长轴；地球采用地月质心近似",
+      "source": "orbit"
+    },
+    "eccentricity": {
+      "unit": "1",
+      "definition": "J2000 拟合轨道偏心率",
+      "source": "orbit"
+    }
+  },
+  "model_note": "固定椭圆、共面轨道、任意初始相位；不应用轨道倾角和长期变化率，不对应日期，不是星历。",
+  "planets": [
+    {
+      "id": "mercury",
+      "name": "水星",
+      "kind": "类地行星",
+      "radius_km": 2439.4,
+      "period_years": 0.2408467,
+      "rotation_days": 58.6462,
+      "a_au": 0.38709927,
+      "eccentricity": 0.20563593,
+      "color": "a9a29b",
+      "description": "离太阳最近的行星，岩石表面保留着许多撞击坑。",
+      "content_source": "https://science.nasa.gov/mercury/",
+      "display_radius": 0.24,
+      "display_a": 22,
+      "phase": 4.0
+    },
+    {
+      "id": "venus",
+      "name": "金星",
+      "kind": "类地行星",
+      "radius_km": 6051.8,
+      "period_years": 0.61519726,
+      "rotation_days": -243.018,
+      "a_au": 0.72333566,
+      "eccentricity": 0.00677672,
+      "color": "dbbd82",
+      "description": "厚厚的云层遮住了地表。它的自转方向与多数行星不同。",
+      "content_source": "https://science.nasa.gov/venus/",
+      "display_radius": 0.43,
+      "display_a": 36,
+      "phase": 2.25
+    },
+    {
+      "id": "earth",
+      "name": "地球",
+      "kind": "类地行星",
+      "radius_km": 6371.0084,
+      "period_years": 1.0000174,
+      "rotation_days": 0.99726968,
+      "a_au": 1.00000261,
+      "eccentricity": 0.01671123,
+      "color": "4b9dc1",
+      "description": "我们的家园。海洋、大气与陆地共同构成了熟悉的蓝色世界。",
+      "content_source": "https://science.nasa.gov/earth/",
+      "display_radius": 0.46,
+      "display_a": 50,
+      "phase": 1.3
+    },
+    {
+      "id": "mars",
+      "name": "火星",
+      "kind": "类地行星",
+      "radius_km": 3389.5,
+      "period_years": 1.8808476,
+      "rotation_days": 1.02595676,
+      "a_au": 1.52371034,
+      "eccentricity": 0.0933941,
+      "color": "c27450",
+      "description": "红色的岩石世界，有火山、峡谷和古老的水活动痕迹。",
+      "content_source": "https://science.nasa.gov/mars/",
+      "display_radius": 0.32,
+      "display_a": 66,
+      "phase": 0.12
+    },
+    {
+      "id": "jupiter",
+      "name": "木星",
+      "kind": "气态巨行星",
+      "radius_km": 69911,
+      "period_years": 11.862615,
+      "rotation_days": 0.41354,
+      "a_au": 5.202887,
+      "eccentricity": 0.04838624,
+      "color": "c8a07c",
+      "description": "太阳系中最大的行星，明暗相间的条纹来自大气中的云带。",
+      "content_source": "https://science.nasa.gov/jupiter/",
+      "display_radius": 1.25,
+      "display_a": 84,
+      "phase": 3.8
+    },
+    {
+      "id": "saturn",
+      "name": "土星",
+      "kind": "气态巨行星",
+      "radius_km": 58232,
+      "period_years": 29.447498,
+      "rotation_days": 0.44401,
+      "a_au": 9.53667594,
+      "eccentricity": 0.05386179,
+      "color": "d8bd88",
+      "description": "醒目的行星环由许多颗粒组成，并不是一整块坚硬圆盘。",
+      "content_source": "https://science.nasa.gov/saturn/",
+      "display_radius": 1.05,
+      "display_a": 104,
+      "phase": 4.95
+    },
+    {
+      "id": "uranus",
+      "name": "天王星",
+      "kind": "冰巨行星",
+      "radius_km": 25362,
+      "period_years": 84.016846,
+      "rotation_days": -0.71833,
+      "a_au": 19.18916464,
+      "eccentricity": 0.04725744,
+      "color": "96ccd0",
+      "description": "一颗冰巨行星，具有十分独特的自转姿态。",
+      "content_source": "https://science.nasa.gov/uranus/",
+      "display_radius": 0.72,
+      "display_a": 125,
+      "phase": 5.9
+    },
+    {
+      "id": "neptune",
+      "name": "海王星",
+      "kind": "冰巨行星",
+      "radius_km": 24622,
+      "period_years": 164.79132,
+      "rotation_days": 0.67125,
+      "a_au": 30.06992276,
+      "eccentricity": 0.00859048,
+      "color": "719fb8",
+      "description": "八大行星中距离太阳最远的一颗，也是一颗冰巨行星。",
+      "content_source": "https://science.nasa.gov/neptune/",
+      "display_radius": 0.7,
+      "display_a": 148,
+      "phase": 0.65
+    }
+  ]
+}

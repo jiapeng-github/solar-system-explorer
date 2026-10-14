@@ -1,0 +1,111 @@
+{
+  "sample_rate": 48000,
+  "format": "PCM16 mono",
+  "status": "integrated in App v0.19.0; original design audition retained",
+  "cues": [
+    {
+      "id": "01_tap",
+      "label": "轻触",
+      "file": "01_tap.wav",
+      "duration_ms": 80,
+      "audition_start_s": 0.5,
+      "peak_dbfs": -23.0
+    },
+    {
+      "id": "02_navigate",
+      "label": "进入页面",
+      "file": "02_navigate.wav",
+      "duration_ms": 190,
+      "audition_start_s": 2.41,
+      "peak_dbfs": -19.6
+    },
+    {
+      "id": "03_back",
+      "label": "返回关闭",
+      "file": "03_back.wav",
+      "duration_ms": 160,
+      "audition_start_s": 4.54,
+      "peak_dbfs": -20.2
+    },
+    {
+      "id": "04_select",
+      "label": "选择",
+      "file": "04_select.wav",
+      "duration_ms": 100,
+      "audition_start_s": 6.61,
+      "peak_dbfs": -20.8
+    },
+    {
+      "id": "05_toggle_on",
+      "label": "开启或展开",
+      "file": "05_toggle_on.wav",
+      "duration_ms": 150,
+      "audition_start_s": 8.56,
+      "peak_dbfs": -22.0
+    },
+    {
+      "id": "06_toggle_off",
+      "label": "关闭或收起",
+      "file": "06_toggle_off.wav",
+      "duration_ms": 150,
+      "audition_start_s": 10.61,
+      "peak_dbfs": -23.3
+    },
+    {
+      "id": "07_focus",
+      "label": "进入近景",
+      "file": "07_focus.wav",
+      "duration_ms": 210,
+      "audition_start_s": 12.66,
+      "peak_dbfs": -19.8
+    },
+    {
+      "id": "08_swap",
+      "label": "交换对象",
+      "file": "08_swap.wav",
+      "duration_ms": 190,
+      "audition_start_s": 14.83,
+      "peak_dbfs": -22.4
+    },
+    {
+      "id": "09_adjust",
+      "label": "缩放或时间刻度",
+      "file": "09_adjust.wav",
+      "duration_ms": 55,
+      "audition_start_s": 16.96,
+      "peak_dbfs": -28.8
+    },
+    {
+      "id": "10_correct",
+      "label": "回答正确",
+      "file": "10_correct.wav",
+      "duration_ms": 360,
+      "audition_start_s": 18.82,
+      "peak_dbfs": -19.9
+    },
+    {
+      "id": "11_retry",
+      "label": "温和重试",
+      "file": "11_retry.wav",
+      "duration_ms": 230,
+      "audition_start_s": 21.29,
+      "peak_dbfs": -22.0
+    },
+    {
+      "id": "12_complete",
+      "label": "首次完成",
+      "file": "12_complete.wav",
+      "duration_ms": 570,
+      "audition_start_s": 23.5,
+      "peak_dbfs": -20.3
+    },
+    {
+      "id": "13_reset",
+      "label": "确认重置",
+      "file": "13_reset.wav",
+      "duration_ms": 210,
+      "audition_start_s": 26.39,
+      "peak_dbfs": -23.2
+    }
+  ]
+}

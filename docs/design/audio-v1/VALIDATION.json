@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "checks": [
+    "13 mono PCM16 WAV files at 48 kHz",
+    "durations match manifest",
+    "non-silent signals",
+    "no clipped PCM samples"
+  ],
+  "cues": [
+    "01_tap",
+    "02_navigate",
+    "03_back",
+    "04_select",
+    "05_toggle_on",
+    "06_toggle_off",
+    "07_focus",
+    "08_swap",
+    "09_adjust",
+    "10_correct",
+    "11_retry",
+    "12_complete",
+    "13_reset"
+  ],
+  "limitations": "No Android speaker/headphone listening test; design files not integrated into app."
+}

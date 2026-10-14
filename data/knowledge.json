@@ -1,0 +1,69 @@
+{
+  "reviewed_at": "2026-10-08",
+  "planets": {
+    "mercury": {
+      "title": "小身材，大铁核",
+      "structure": "内部以金属核和外侧岩石层组成。",
+      "atmosphere": "没有浓厚大气，只有极稀薄的外逸层。",
+      "moons": "没有天然卫星。",
+      "feature": "昼夜温差很大；离太阳最近，却不是最热的行星。",
+      "source": "https://science.nasa.gov/mercury/facts/"
+    },
+    "venus": {
+      "title": "被浓厚大气包裹的岩石世界",
+      "structure": "具有铁核、岩石地幔和地壳。",
+      "atmosphere": "大气以二氧化碳为主，强烈温室效应使地表极热。",
+      "moons": "没有天然卫星。",
+      "feature": "自转方向与多数行星相反；恒星自转一圈比公转一圈更久。",
+      "source": "https://science.nasa.gov/venus/facts/"
+    },
+    "earth": {
+      "title": "海洋与生命的家园",
+      "structure": "由内核、外核、地幔和地壳构成。",
+      "atmosphere": "近地表大气主要是氮气和氧气。",
+      "moons": "月球是地球的天然卫星。",
+      "feature": "海洋覆盖约七成表面，是目前已知有生命的行星。",
+      "source": "https://science.nasa.gov/earth/facts/"
+    },
+    "mars": {
+      "title": "红色来自含铁矿物氧化",
+      "structure": "金属核外包裹岩石地幔和地壳。",
+      "atmosphere": "大气稀薄，主要成分是二氧化碳。",
+      "moons": "火卫一与火卫二是它的两颗卫星。",
+      "feature": "古河道和湖床等地貌记录了过去的水活动。",
+      "source": "https://science.nasa.gov/mars/facts/"
+    },
+    "jupiter": {
+      "title": "最大的行星，也有巨大的风暴",
+      "structure": "主要由氢和氦组成，深处高压改变物质状态，没有可站立的固体表面。",
+      "atmosphere": "云带与风暴塑造了条纹，大红斑是一场巨大风暴。",
+      "moons": "木卫一、木卫二、木卫三、木卫四合称伽利略卫星。",
+      "feature": "木卫三是太阳系最大的卫星；木星的自转比地球快。",
+      "source": "https://science.nasa.gov/jupiter/facts/"
+    },
+    "saturn": {
+      "title": "行星环不是一整块圆盘",
+      "structure": "主要由氢和氦组成，没有像地球一样的固体地表。",
+      "atmosphere": "大气中有云带、风和风暴。",
+      "moons": "代表性卫星包括土卫六和土卫二。",
+      "feature": "环由无数冰和岩石颗粒组成，土卫六上有甲烷湖泊。",
+      "source": "https://science.nasa.gov/saturn/facts/"
+    },
+    "uranus": {
+      "title": "像侧躺着一样自转",
+      "structure": "冰巨行星内部富含水、氨和甲烷等物质；“冰”不代表整个内部都是冻结固体。",
+      "atmosphere": "大气主要是氢和氦，少量甲烷影响颜色。",
+      "moons": "拥有多颗卫星与暗淡的行星环。",
+      "feature": "自转轴倾斜极大；当前探索模型未模拟真实轴倾角。",
+      "source": "https://science.nasa.gov/uranus/facts/"
+    },
+    "neptune": {
+      "title": "遥远的冰巨行星",
+      "structure": "内部模型包含岩石核及高温高压下富含水、氨和甲烷的物质。",
+      "atmosphere": "大气主要是氢和氦，含少量甲烷，风速很高。",
+      "moons": "海卫一是它最大的卫星。",
+      "feature": "没有可站立的固体表面；常见深蓝影像经过色彩增强。",
+      "source": "https://science.nasa.gov/neptune/facts/"
+    }
+  }
+}
