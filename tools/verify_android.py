@@ -35,7 +35,7 @@ with zipfile.ZipFile(args.apk) as archive:
     assert not any(n.startswith(('assets/work/', 'assets/tests/', 'assets/tools/', 'assets/docs/')) for n in entries), 'Development files included'
     maps = ['earth.png', 'moon.jpg', 'clouds.jpg', 'mercury.jpg', 'venus_atmosphere.jpg', 'mars.jpg', 'jupiter.jpg', 'saturn.jpg', 'uranus.jpg', 'neptune.jpg']
     thumbnails = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune']
-    for resource in [f'textures/{name}' for name in maps] + [f'thumbnails/{name}.png' for name in thumbnails] + ['art/home-saturn-v2.png', 'ui/app-logo-v3.png']:
+    for resource in [f'textures/{name}' for name in maps] + [f'thumbnails/{name}.png' for name in thumbnails] + ['art/home-saturn-v2.png', 'ui/saturn-icon.png']:
         import_path = f'assets/assets/{resource}.import'
         assert import_path in entries, f'Missing texture import: {resource}'
         references = re.findall(r'"res://([^"\n]+\.ctex)"', archive.read(import_path).decode())

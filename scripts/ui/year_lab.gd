@@ -113,6 +113,7 @@ func _ready() -> void:
 	console_row.add_child(timeline)
 	progress_label = label("公转进度  0%",timeline,19,Color("60e6f5"))
 	slider = HSlider.new()
+	slider.accessibility_name = "公转进度"
 	slider.min_value = 0
 	slider.max_value = 360
 	slider.step = .1

@@ -138,6 +138,7 @@ func _ready() -> void:
 	current = label("",timeline,18)
 	current.add_theme_color_override("font_color",Color("60eaff"))
 	slider = HSlider.new()
+	slider.accessibility_name = "四季时间轴"
 	slider.min_value = 0
 	slider.max_value = 360
 	slider.step = .1

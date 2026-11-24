@@ -131,6 +131,8 @@ func zoom_by(factor: float) -> void:
 	_update_transform()
 
 func _input(event: InputEvent) -> void:
+	# GUI buttons use emulated mouse clicks. The camera already handles native touches.
+	if event is InputEventMouse and event.device == InputEvent.DEVICE_ID_EMULATION: return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			_interrupt_transition()

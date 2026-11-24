@@ -6,7 +6,7 @@ signal enabled_changed(value: bool)
 const BUS := &"UI_SFX"
 const MUSIC_BUS := &"Music"
 const MUSIC_STREAM = preload("res://assets/music/starlight-voyage-loop.wav")
-const MUSIC_DB := -7.0
+const MUSIC_DB := -5.0
 const MUSIC_FADE_SECONDS := 1.5
 var _music: AudioStreamPlayer
 var _music_fade := 0.0

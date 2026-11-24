@@ -53,6 +53,7 @@ func run() -> void:
 		if dimensions.x > 1000: check(app._body.get_global_rect().end.y <= app._body_scroll.get_global_rect().end.y+2,"First screen fits "+str(dimensions))
 	app.progress.reset_progress()
 	app.navigate("home")
+	check(home().continue_button.text == "认识地球","First visit introduces the default planet")
 	check(home().visited == 0 and home().lessons == 0,"Empty progress stays empty")
 	for id in ["mercury","venus","earth","mars","jupiter","saturn","uranus","neptune"]: app.progress.visit(id)
 	for id in ["day","year","seasons"]: app.progress.complete(id)

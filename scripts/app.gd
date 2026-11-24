@@ -145,6 +145,7 @@ func _ready() -> void:
 	brand.add_theme_stylebox_override("normal",_style(Color.TRANSPARENT,0,0))
 	_back_button = _button("‹",brand_row,_go_back)
 	_back_button.tooltip_text = "返回上一页"
+	_back_button.accessibility_name = "返回上一页"
 	_back_button.custom_minimum_size.x = 48
 	var navigation := HFlowContainer.new()
 	_navigation = navigation
@@ -478,10 +479,10 @@ func _explore() -> void:
 	)
 	_view_buttons["overview"] = _button("全景",controls,func() -> void: _overview_from_ui())
 	_view_buttons["close"] = _button("近景",controls,func() -> void: _select_planet(selected_index,true))
-	var zoom_out := _button("−",controls,func() -> void: _zoom_from_ui(1.2))
+	var zoom_out := _button("缩小",controls,func() -> void: _zoom_from_ui(1.2))
 	zoom_out.custom_minimum_size.x = 44
 	zoom_out.tooltip_text = "缩小（也可双指捏合或滚轮向下）"
-	var zoom_in := _button("＋",controls,func() -> void: _zoom_from_ui(1.0/1.2))
+	var zoom_in := _button("放大",controls,func() -> void: _zoom_from_ui(1.0/1.2))
 	zoom_in.custom_minimum_size.x = 44
 	zoom_in.tooltip_text = "放大（也可双指张开或滚轮向上）"
 	_button("恢复视角",controls,func() -> void: _restore_view_from_ui())
@@ -509,6 +510,7 @@ func _explore() -> void:
 		var button := _button("",_planet_grid,func() -> void: _select_planet(index,world.camera.follow_node != null,"select"))
 		button.toggle_mode = true
 		button.tooltip_text = "探索"+catalog[i].name
+		button.accessibility_name = button.tooltip_text
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		button.custom_minimum_size = Vector2(74,96)
 		button.add_theme_stylebox_override("normal",_style(Color.TRANSPARENT,16,6))
@@ -919,6 +921,7 @@ func _compare() -> void:
 	for i in range(catalog.size()):
 		var index := i
 		var button := _button("",_planet_grid,func() -> void: _choose_comparison(_compare_slot,index,true))
+		button.accessibility_name = "选择"+catalog[i].name+"作为比较对象"
 		button.toggle_mode = true
 		button.custom_minimum_size = Vector2(74,80)
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -1085,6 +1088,16 @@ func _process(delta: float) -> void:
 func _show_sources() -> void:
 	if not _sources.visible: Sound.play_from(self,"tap")
 	_sources.present()
+
+func _input(event: InputEvent) -> void:
+	if page != "explore" or not is_instance_valid(_scene_container): return
+	if not (event is InputEventScreenTouch or event is InputEventScreenDrag): return
+	var local_event := _scene_container.make_input_local(event)
+	if event is InputEventScreenTouch and event.pressed:
+		if not Rect2(Vector2.ZERO,_scene_container.size).has_point(local_event.position): return
+	elif not world.camera._touches.has(event.index): return
+	world.camera._input(local_event)
+	get_viewport().set_input_as_handled()
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and (page != "home" or not _history.is_empty()):

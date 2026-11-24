@@ -8,6 +8,7 @@ var thumb: TextureRect
 func _ready() -> void:
 	custom_minimum_size = Vector2(76,127)
 	tooltip_text = planet_name+" · "+("已探索" if visited else "待探索")
+	accessibility_name = tooltip_text
 	for key in ["normal","hover","pressed","focus"]:
 		add_theme_stylebox_override(key,Style.box(Color.TRANSPARENT if key == "normal" else Color("12314980"),12,0))
 	thumb = TextureRect.new()

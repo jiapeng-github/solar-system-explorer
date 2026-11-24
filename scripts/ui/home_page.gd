@@ -79,7 +79,7 @@ func _ready() -> void:
 	intro.add_child(actions)
 	primary_button = button("进入太阳系  →",actions,func(): destination_requested.emit("explore"),true)
 	primary_button.custom_minimum_size.x = 205
-	continue_button = button("继续探索"+selected_name,actions,func(): continue_requested.emit())
+	continue_button = button(("继续探索" if visited > 0 else "认识")+selected_name,actions,func(): continue_requested.emit())
 	var visual := Control.new()
 	visual.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	visual.size_flags_stretch_ratio = .60
