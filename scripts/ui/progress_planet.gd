@@ -6,6 +6,7 @@ var visited := false
 var recommended := false
 var thumb: TextureRect
 func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_PASS
 	custom_minimum_size = Vector2(76,127)
 	tooltip_text = planet_name+" · "+("已探索" if visited else "待探索")
 	accessibility_name = tooltip_text

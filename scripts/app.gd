@@ -109,8 +109,6 @@ func _ready() -> void:
 		return
 	progress.load_progress()
 	quality.load_settings()
-	# The public app now always starts in HD, including upgrades from older settings.
-	quality.level = 2
 	for i in range(catalog.size()):
 		if catalog[i].id == progress.data.selected:
 			selected_index = i
@@ -180,6 +178,7 @@ func _ready() -> void:
 	_body.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	var body_scroll := ScrollContainer.new()
 	_body_scroll = body_scroll
+	body_scroll.scroll_deadzone = 10
 	body_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	body_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_layout.add_child(body_scroll)
@@ -486,6 +485,8 @@ func _explore() -> void:
 	zoom_in.custom_minimum_size.x = 44
 	zoom_in.tooltip_text = "放大（也可双指张开或滚轮向上）"
 	_button("恢复视角",controls,func() -> void: _restore_view_from_ui())
+	var quality_button := _button("画质",controls,_show_settings,false,"tap")
+	quality_button.name = "GraphicsQuality"
 	var gesture_hint := _label("拖动旋转 · 双指缩放",controls,13,MUTED)
 	gesture_hint.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	for control in controls.get_children():
@@ -1091,6 +1092,7 @@ func _show_sources() -> void:
 
 func _input(event: InputEvent) -> void:
 	if page != "explore" or not is_instance_valid(_scene_container): return
+	if _settings.visible or _sources.visible: return
 	if not (event is InputEventScreenTouch or event is InputEventScreenDrag): return
 	var local_event := _scene_container.make_input_local(event)
 	if event is InputEventScreenTouch and event.pressed:
@@ -1131,6 +1133,7 @@ func _exit_tree() -> void:
 func _build_settings() -> void:
 	_settings = AcceptDialog.new()
 	_settings.title = "画质设置"
+	_settings.ok_button_text = "完成"
 	_settings.add_theme_stylebox_override("panel",_style(PANEL,16,16))
 	_settings.add_theme_stylebox_override("embedded_border",_style(PANEL,16,16))
 	var content := VBoxContainer.new()
@@ -1138,11 +1141,13 @@ func _build_settings() -> void:
 	_settings.add_child(content)
 	_quality_picker = OptionButton.new()
 	_quality_picker.custom_minimum_size.y = 52
+	_quality_picker.accessibility_name = "画质档位"
 	for preset in quality.PRESETS: _quality_picker.add_item(preset)
 	_quality_picker.select(quality.level)
 	_quality_picker.item_selected.connect(_set_quality)
 	content.add_child(_quality_picker)
-	_quality_note = _label("",content,17,MUTED)
+	CompareControls.option(_quality_picker)
+	_quality_note = _label("当前画质："+quality.PRESETS[quality.level],content,17,MUTED)
 	_label("流畅：关闭抗锯齿、云层和光晕\n均衡：2× 抗锯齿，保留云层与大气\n高清：4× 抗锯齿，增加太阳光晕",content,16,MUTED)
 	_label("设置立即生效并保存在本机。",content,16,MUTED)
 	_button("资料与模型说明",content,func() -> void: _settings.hide(); _show_sources())
@@ -1151,7 +1156,7 @@ func _build_settings() -> void:
 	add_child(_settings)
 
 func _show_settings() -> void:
-	_quality_note.text = "当前画质："+quality.PRESETS[quality.level]
+	world.camera.cancel_gestures()
 	_settings.popup_centered(Vector2i(mini(int(size.x)-40,500),300))
 
 func _set_quality(level: int) -> void:

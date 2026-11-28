@@ -40,6 +40,8 @@ func label(value: String, parent: Node, font_size := 16, color := Color("e4effb"
 	return node
 func button(value: String, parent: Node, action: Callable, primary := false, cue := "") -> Button:
 	var node := Button.new()
+	# Let the scroll container distinguish taps from drags.
+	node.mouse_filter = Control.MOUSE_FILTER_PASS
 	node.text = value
 	node.custom_minimum_size.y = 32
 	node.add_theme_font_size_override("font_size",14)
@@ -57,6 +59,7 @@ func button(value: String, parent: Node, action: Callable, primary := false, cue
 	return node
 func panel(parent: Node, padding := 8, accented := false) -> VBoxContainer:
 	var frame := PanelContainer.new()
+	frame.mouse_filter = Control.MOUSE_FILTER_PASS
 	var skin := Style.box(Color("051725d9"),12,padding)
 	skin.border_color = Color("44dcec") if accented else Color("37657f")
 	frame.add_theme_stylebox_override("panel",skin)
@@ -118,6 +121,7 @@ func _ready() -> void:
 		var metric_row := HBoxContainer.new()
 		card.add_child(metric_row)
 		var icon := TextureRect.new()
+		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		var image := Image.new()
 		var drawing: String = ['<ellipse cx="23" cy="23" rx="15" ry="6"/><circle cx="23" cy="23" r="11"/><path d="M23 12c-8 7-8 15 0 22m0-22c8 7 8 15 0 22"/>','<path d="M18 10h10m-8 0v12L13 34q-1 3 3 3h16q4 0 2-3l-8-12V10M18 28h12"/>','<rect x="14" y="12" width="20" height="25" rx="3"/><path d="M20 10h8v5h-8zM19 22l2 2 3-4m2 3h4M19 30h11"/>'][i]
 		image.load_svg_from_string('<svg xmlns="http://www.w3.org/2000/svg" width="46" height="46"><g fill="none" stroke="#69dff0" stroke-width="1.5"><circle cx="23" cy="23" r="22" stroke="#557e9c"/>'+drawing+'</g></svg>')

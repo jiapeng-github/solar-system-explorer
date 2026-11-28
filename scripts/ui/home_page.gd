@@ -36,6 +36,8 @@ func label(value: String, parent: Node, font_size := 17, color := Color("eaf1fc"
 	return node
 func button(value: String, parent: Node, action: Callable, primary := false) -> Button:
 	var node := Button.new()
+	# Let the page scroll take over a drag that starts on a button.
+	node.mouse_filter = Control.MOUSE_FILTER_PASS
 	node.text = value
 	node.add_theme_font_size_override("font_size",18)
 	node.custom_minimum_size.y = 48
@@ -72,6 +74,7 @@ func _ready() -> void:
 	title = label("从这里出发\n探索太阳系",intro,58)
 	label("走近八大行星，亲手发现宇宙的奥秘。",intro,18)
 	var gap := Control.new()
+	gap.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	gap.custom_minimum_size.y = 6
 	intro.add_child(gap)
 	actions = BoxContainer.new()
@@ -81,6 +84,7 @@ func _ready() -> void:
 	primary_button.custom_minimum_size.x = 205
 	continue_button = button(("继续探索" if visited > 0 else "认识")+selected_name,actions,func(): continue_requested.emit())
 	var visual := Control.new()
+	visual.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	visual.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	visual.size_flags_stretch_ratio = .60
 	visual.custom_minimum_size.y = 335
@@ -98,6 +102,7 @@ func _ready() -> void:
 	saturn_label.size = Vector2(100,48)
 	visual.resized.connect(func(): saturn_label.position = Vector2(visual.size.x*.81,visual.size.y*.65))
 	var progress_frame := PanelContainer.new()
+	progress_frame.mouse_filter = Control.MOUSE_FILTER_PASS
 	progress_frame.add_theme_stylebox_override("panel",Style.box(Color("051522c0"),14,12))
 	add_child(progress_frame)
 	progress_row = BoxContainer.new()
@@ -116,6 +121,7 @@ func _ready() -> void:
 	progress_row.add_child(segments)
 	for i in range(8):
 		var segment := Panel.new()
+		segment.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		segment.custom_minimum_size = Vector2(18,10)
 		segment.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var skin := Style.box(Color("51e2f2") if i < visited else Color("1b354c"),5,0)
@@ -135,6 +141,7 @@ func _ready() -> void:
 	for i in range(3):
 		var index := i
 		var frame := PanelContainer.new()
+		frame.mouse_filter = Control.MOUSE_FILTER_PASS
 		frame.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		frame.custom_minimum_size.y = 192
 		frame.add_theme_stylebox_override("panel",Style.box(Color("061623b0"),13,10))
@@ -157,6 +164,7 @@ func _ready() -> void:
 		card_titles.append(label(["认识八大行星","地球为什么有四季？","行星有多大？"][i],words,21))
 		label(["从水星到海王星","改变地轴，观察日照变化","用同一比例，比较不同世界"][i],words,14,Color("bdcfe4"))
 		var space := Control.new()
+		space.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		space.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		words.add_child(space)
 		var enter := button("→",words,func(): open_card(index))
@@ -173,6 +181,7 @@ func _ready() -> void:
 	add_child(footer)
 	label("↓  核心内容离线可用",footer,13,Color("a5bdd7"))
 	var note := LinkButton.new()
+	note.mouse_filter = Control.MOUSE_FILTER_PASS
 	note.text = "ⓘ  资料与模型说明"
 	note.add_theme_font_size_override("font_size",13)
 	note.custom_minimum_size.y = 24

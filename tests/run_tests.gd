@@ -78,7 +78,8 @@ func run() -> void:
 	app._body.get_node("HomePage").primary_button.pressed.emit()
 	await frames()
 	check(app.world.bodies.size() == 8,"8 rendered planets")
-	check(app.quality.level == 2 and app.viewport.msaa_3d == Viewport.MSAA_4X,"Startup uses HD even after legacy low quality")
+	check(app.quality.level == 0 and app.viewport.msaa_3d == Viewport.MSAA_DISABLED,"Startup applies saved quality to the first exploration view")
+	app._set_quality(2)
 	check(app.page == "explore" and app.world.camera.follow_node == null,"Initial exploration shows overview")
 	app.world.select_body(2,true)
 	await frames()
@@ -143,10 +144,12 @@ func run() -> void:
 	check(app.world.camera.is_transitioning(),"Overview starts smooth transition")
 	check(app.world.camera.position.distance_to(before_transition) < .01,"Transition starts without jumping")
 	check(is_equal_approx(app.world.bodies[5].scale.x,1.0),"Departure planet does not abruptly enlarge")
-	await create_timer(.15).timeout
-	check(app.world.camera.is_transitioning() and app.world.camera.position.distance_to(before_transition) > .01,"Camera moves through an intermediate pose")
+	# Sample a fixed fraction before yielding so a slow frame cannot skip the middle pose.
+	camera._process(camera.transition_duration * .25)
+	var intermediate_position: Vector3 = camera.position
+	check(camera.is_transitioning() and intermediate_position.distance_to(before_transition) > .01,"Camera moves through an intermediate pose")
 	await capture("explore-v032")
-	check(not app.world.camera.is_transitioning(),"Camera transition settles")
+	check(not camera.is_transitioning() and camera.position.distance_to(intermediate_position) > .01,"Camera transition settles past the intermediate pose")
 	check(app.world.bodies.all(func(body): return body.visible),"Overview restores every planet")
 	var bounds: Rect2 = app.viewport.get_visible_rect()
 	for body in app.world.bodies:
@@ -333,7 +336,10 @@ func run() -> void:
 	await frames()
 	app.world.select_body(5,true)
 	await capture("saturn-v06")
-	app._show_settings()
+	var quality_button := app._body.find_child("GraphicsQuality",true,false) as Button
+	check(is_instance_valid(quality_button),"Explore toolbar exposes the quality settings")
+	if is_instance_valid(quality_button): quality_button.pressed.emit()
+	check(app._settings.visible,"Quality button opens the settings dialog")
 	await capture("settings-v06")
 	app._go_back()
 	check(not app._settings.visible and app.page == "explore","Back closes settings before navigation")
